@@ -7,4 +7,5 @@ Questo è il mio portfolio, ho realizzato io il sito web con Gitup scrviendo il 
 - __Docente__ Matteo Baccan 
 
 __Indirizzo Pubblicazione Netlify__
+
 https://ivancalloni.netlify.app/
