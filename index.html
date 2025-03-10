@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-    <link rel="icon" href="logo_sito.png" type="image/png">
+   <link rel="icon" href="logo_sito.png" type="image/png">
 <head>
     <title>PortIvan</title>
     <style>
         body {
-            font-family:Readex Pro, sans-serif;
+            font-family: Readex Pro, sans-serif;
             background-color: #293133;
             margin: 0;
             padding: 0;
@@ -20,7 +20,6 @@
             padding: 20px;
             margin: 30px 0;
             border-radius: 20px;
-          
         }
         h2 {
             color: #333;
@@ -29,9 +28,13 @@
             background-color: #1f2527;
             padding: 10px;
             text-align: center;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
         nav a {
-            color: white;
+            color: rgb(255, 255, 255);
             text-decoration: none;
             margin: 0 15px;
             font-size: 18px;
@@ -48,15 +51,25 @@
             padding: 10px;
             font-size: 16px;
         }
+        .fixed-name {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 15px;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
     <nav>
         <a href="#chi-sono">Chi sono</a>
         <a href="#miei-lavori">I miei lavori</a>
-      <a href="#dove-trovarmi">Dove trovarmi</a>  
-      <a href="#contattami">Contattami</a>
-        
+        <a href="#dove-trovarmi">Dove trovarmi</a>  
+        <a href="#contattami">Contattami</a>
     </nav>
     
     <div class="container">
@@ -64,80 +77,47 @@
             <h2>Chi sono</h2>
             <p>Ciao! Sono Ivan, un appassionato di design e arte. Sono specializzato nella comunicazione di marca e creazione di brand identity e immagini per il pubblico.</p>
         </div>
+        
         <div id="miei-lavori" class="section">
             <h2>I miei lavori</h2>
             <p>Ho lavorato su vari progetti, dal design grafico allo sviluppo di prodotti di comunicazione.</p>
         </div>
+
         <div id="contattami" class="section">
             <h2>Contattami</h2>
-</head>
-<body>
-    <ul>
-        <li>ivan.calloni.sch@gmail.com</li>
-        <li>(+39) 3518007325</li>
-        <li>@ivan.calloni</li>
-    </ul>
-</body>
-         
+            <form action="mailto:ivan.calloni.sch@gmail.com" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="Il tuo nome" required>
+                <input type="email" name="email" placeholder="La tua email" required>
+                <textarea name="message" rows="5" placeholder="Il tuo messaggio" required></textarea>
+                <button type="submit">Invia</button>
             </form>
-       
-  </div>
+        </div>
+
         <div id="dove-trovarmi" class="section">
             <h2>Dove trovarmi</h2>
-            <p>MAPPA</p>
+            <iframe 
+                width="100%" 
+                height="400" 
+                frameborder="0" 
+                style="border:0" 
+                allowfullscreen 
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11055.583356071352!2d8.846043099999999!3d45.50864595000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478690e79c53fc41%3A0x5093baf1346b1cb1!2s20010%20Inveruno%20MI!5e0!3m2!1sit!2sit!4v1710070000000">
+            </iframe>
+        </div>
+
+        <div id="contatti" class="section">
+            <h2>Contatti</h2>
+            <ul>
+                <li>ivan.calloni.sch@gmail.com</li>
+                <li>(+39) 3518007325</li>
+                <li><a href="https://www.instagram.com/ivan.calloni" target="_blank">@ivan.calloni</a></li>
+                <li><a href="https://www.linkedin.com/in/ivan-calloni-50b736271/" target="_blank">Ivan Calloni</a></li>
+            </ul>
         </div>
     </div>
+
+    <div class="fixed-name">Ivan Calloni</div>
 </body>
 </html>
-
-
-<!Certo! Creare un sito web per presentare il tuo portfolio da grafico in una pagina unica (one-page site) è una scelta molto efficace per mostrare il tuo lavoro in modo diretto e impattante. Ecco alcune idee per strutturare al meglio la tua pagina:
-
-### 1. **Header (Introduzione visiva)**
-   - **Logo e nome**: In alto, il tuo logo o il tuo nome in una tipografia ben progettata.
-   - **Slogan o descrizione breve**: Una frase che riassuma chi sei e cosa fai, per esempio: *"Design visivi che parlano per te"*.
-   - **Call to action (CTA)**: Un pulsante ben visibile che invita a contattarti o a visualizzare il portfolio (es. "Contattami" o "Guarda i miei lavori").
-   - **Navigazione minima**: Un menu con ancore che scivolano verso le sezioni principali della pagina (Ad esempio: "Portfolio", "Chi sono", "Servizi", "Contatti").
-
-### 2. **Presentazione personale / Chi sono**
-   - **Breve bio**: Un paragrafo che racconta chi sei, la tua esperienza e la tua filosofia di design. Puoi includere anche un’autoscatto o una foto che ti rappresenti nel contesto del lavoro.
-   - **Skills**: Una lista delle tue competenze principali, come software che utilizzi, tipi di progetti che realizzi (brand identity, design web, illustrazione, etc.).
-   - **Specializzazioni**: Se hai delle aree di specializzazione particolari, come il design per startup, la grafica per social media, il packaging design, etc.
-
-### 3. **Portfolio (Sezione progetti)**
-   - **Galleria dinamica**: Una selezione di lavori rappresentativi, che possano includere immagini, video o mockup dei progetti. Puoi scegliere di mostrare un progetto per volta con un effetto di scroll o gallery interattiva.
-   - **Descrizione breve per ogni progetto**: Ogni immagine o miniatura dovrebbe essere cliccabile e portare a una breve descrizione del progetto (scopo, processo, strumenti utilizzati e risultato finale).
-   - **Categorie di progetti**: Se hai molti lavori, suddividili in categorie (ad esempio: logo design, branding, illustrazioni, design web, packaging).
-
-### 4. **Processo creativo (Opzionale ma interessante)**
-   - **Come lavoro**: Una sezione in cui spieghi il tuo processo creativo. Può essere una lista o un diagramma visivo che mostra le fasi del lavoro: briefing, concept, progettazione, feedback, revisione e consegna.
-   - **Strumenti e tecniche**: Parlare degli strumenti (software, tecniche manuali) che usi per creare i tuoi lavori può dare un'idea della tua professionalità e del livello di dettaglio.
-
-### 5. **Testimonianze**
-   - **Feedback dei clienti**: Se hai collaborato con clienti o aziende, una sezione con brevi testimonianze o recensioni può dare credibilità e valore al tuo lavoro.
-   - **Logo dei clienti (se possibile)**: Mostrare i loghi di aziende con cui hai collaborato è un modo per dare visibilità al tuo lavoro e rassicurare i visitatori sulla tua esperienza.
-
-### 6. **Servizi**
-   - **Descrizione dei servizi offerti**: Un elenco chiaro dei servizi che offri, come *logo design*, *branding*, *design per il web*, *grafica per social media*, *illustrazioni personalizzate*, etc.
-   - **Possibile CTA**: Un altro invito all'azione come "Richiedi un preventivo" o "Contattami per una consulenza" che faciliti la conversione.
-
-### 7. **Call to action finale**
-   - **Contatti**: Un modulo di contatto semplice, o un indirizzo email e numero di telefono.
-   - **Social media**: Collega i tuoi profili social come Instagram, Behance, Dribbble, LinkedIn, ecc.
-   - **Newsletter**: Se possibile, aggiungi un'opzione per iscriversi a una newsletter per aggiornamenti su nuovi progetti o offerte.
-
-### 8. **Footer**
-   - **Dati di contatto**: Indirizzo email, telefono e link ai social.
-   - **Crediti o disclaimer**: Una piccola sezione in basso con i crediti (se necessario) e una dichiarazione sulla privacy, cookie policy, etc.
-
-### 9. **Design della pagina**
-   - **Layout minimalista e chiaro**: Utilizza uno spazio bianco ampio e un layout che non sovraccarichi il visitatore con troppe informazioni tutte insieme.
-   - **Tipografia e colori coerenti**: Usa font e colori che riflettano il tuo stile e la tua identità di designer.
-   - **Animazioni leggere**: Effetti di transizione o hover che rendano la navigazione più fluida e interessante senza essere invadenti.
-
-### 10. **SEO e ottimizzazione per dispositivi mobili**
-   - **SEO friendly**: Assicurati che il sito sia ottimizzato per i motori di ricerca (SEO) in modo che i tuoi lavori siano facilmente trovabili online.
-   - **Responsive design**: Garantire che la pagina si visualizzi bene sia su desktop che su mobile è fondamentale.
-
-### 11. **Sezione blog (Opzionale)**
-   - **Condivisione di pensieri sul design**: Se hai voglia di scrivere articoli, tutorial o condividere aggiornamenti sul mondo del design, un blog potrebbe essere una sezione aggiuntiva interessante.-->
