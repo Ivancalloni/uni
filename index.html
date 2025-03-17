@@ -161,6 +161,29 @@
     .carousel-btn:hover {
         background-color: rgba(0, 0, 0, 0.6);
     }
+}
+    .project-details {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 80%;
+        max-width: 500px;
+        text-align: center;
+    }
+    .close-btn {
+        background: red;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
     </style>
 </head>
 <body>
@@ -189,15 +212,21 @@
                 <button class="carousel-btn left" onclick="moveSlide(-1)">&#10094;</button>
                 <div class="carousel">
                     <div class="carousel-slide">
-                        <div class="work-item">Progetto 1</div>
-                        <div class="work-item">Progetto 2</div>
-                        <div class="work-item">Progetto 3</div>
-                        <div class="work-item">Progetto 4</div>
-                        <div class="work-item">Progetto 5</div>
+                        <div class="work-item" onclick="openDetails('Progetto 1', 'Descrizione del progetto 1')">Progetto 1</div>
+                        <div class="work-item" onclick="openDetails('Progetto 2', 'Descrizione del progetto 2')">Progetto 2</div>
+                        <div class="work-item" onclick="openDetails('Progetto 3', 'Descrizione del progetto 3')">Progetto 3</div>
+                        <div class="work-item" onclick="openDetails('Progetto 4', 'Descrizione del progetto 4')">Progetto 4</div>
+                        <div class="work-item" onclick="openDetails('Progetto 5', 'Descrizione del progetto 5')">Progetto 5</div>
                     </div>
                 </div>
                 <button class="carousel-btn right" onclick="moveSlide(1)">&#10095;</button>
             </div>
+        </div>
+        
+        <div id="project-details" class="project-details">
+            <h2 id="project-title"></h2>
+            <p id="project-description"></p>
+            <button class="close-btn" onclick="closeDetails()">Chiudi</button>
         </div>
         
         <script>
@@ -211,8 +240,15 @@
                 if (index > items.length - 3) index = 0;
                 slide.style.transform = `translateX(-${index * itemWidth}px)`;
             }
+            function openDetails(title, description) {
+                document.getElementById('project-title').innerText = title;
+                document.getElementById('project-description').innerText = description;
+                document.getElementById('project-details').style.display = 'block';
+            }
+            function closeDetails() {
+                document.getElementById('project-details').style.display = 'none';
+            }
         </script>
-        
         <div id="contatti" class="section">
             <h2>Contatti</h2>
             <ul class="contact-list">
