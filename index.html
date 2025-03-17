@@ -64,13 +64,11 @@
             padding: 10px 15px;
             border-radius: 10px;
         }
-
         .photo-section {
             display: flex;
             justify-content: center;
             margin: 20px 0;
         }
-
         .photo {
             width: 150px;
             height: 150px;
@@ -80,33 +78,44 @@
             border-radius: 50%;
             border: 5px solid white; 
         }
-
+        .contact-list img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
     <nav>
         <a href="#chi-sono">Chi sono</a>
         <a href="#miei-lavori">I miei lavori</a>
-        <a href="#dove-trovarmi">Dove trovarmi</a>  
+        <a href="#contatti">Contatti</a>
         <a href="#contattami">Contattami</a>
+        <a href="#dove-trovarmi">Dove trovarmi</a>  
     </nav>
     
     <div class="container">
-        <!-- AGGIUNGI FOTO -->
         <div class="photo-section">
             <div class="photo"></div>
         </div>
-
         <div id="chi-sono" class="section">
             <h2>Chi sono</h2>
             <p>Ciao! Sono Ivan, un appassionato di design e arte. Sono specializzato nella comunicazione di marca e creazione di brand identity e immagini per il pubblico.</p>
         </div>
-        
         <div id="miei-lavori" class="section">
             <h2>I miei lavori</h2>
             <p>Ho lavorato su vari progetti, dal design grafico allo sviluppo di prodotti di comunicazione.</p>
         </div>
-
+        <div id="contatti" class="section">
+            <h2>Contatti</h2>
+            <ul class="contact-list">
+                <li><img src="email_icon.png" alt="Email"> ivan.calloni.sch@gmail.com</li>
+                <li><img src="phone_icon.png" alt="Telefono"> (+39) 3518007325</li>
+                <li><img src="instagram_icon.png" alt="Instagram"> <a href="https://www.instagram.com/ivan.calloni" target="_blank">@ivan.calloni</a></li>
+                <li><img src="linkedin_icon.png" alt="LinkedIn"> <a href="https://www.linkedin.com/in/ivan-calloni-50b736271/" target="_blank">Ivan Calloni</a></li>
+            </ul>
+        </div>
         <div id="contattami" class="section">
             <h2>Contattami</h2>
             <form action="mailto:ivan.calloni.sch@gmail.com" method="post" enctype="text/plain">
@@ -116,7 +125,6 @@
                 <button type="submit">Invia</button>
             </form>
         </div>
-
         <div id="dove-trovarmi" class="section">
             <h2>Dove trovarmi</h2>
             <iframe 
@@ -130,18 +138,7 @@
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11055.583356071352!2d8.846043099999999!3d45.50864595000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478690e79c53fc41%3A0x5093baf1346b1cb1!2s20010%20Inveruno%20MI!5e0!3m2!1sit!2sit!4v1710070000000">
             </iframe>
         </div>
-
-        <div id="contatti" class="section">
-            <h2>Contatti</h2>
-            <ul>
-                <li>ivan.calloni.sch@gmail.com</li>
-                <li>(+39) 3518007325</li>
-                <li><a href="https://www.instagram.com/ivan.calloni" target="_blank">@ivan.calloni</a></li>
-                <li><a href="https://www.linkedin.com/in/ivan-calloni-50b736271/" target="_blank">Ivan Calloni</a></li>
-            </ul>
-        </div>
     </div>
-
     <div class="fixed-name">Ivan Calloni</div>
 </body>
 </html>
