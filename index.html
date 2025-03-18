@@ -195,7 +195,7 @@
         }
         .white { background-color: white; }
         .pink { background-color: #E895D7; }
-        .gray { background-color: #7A7A7A; }
+        .gray { background-color: #3b3b3b; }
         
         @keyframes rotateStar {
             from { transform: rotate(0deg); }
@@ -222,7 +222,7 @@
         <script>
             function createStars() {
                 const colors = ['white', 'pink', 'gray'];
-                const numStars = 20;
+                const numStars = 30;
                 for (let i = 0; i < numStars; i++) {
                     let star = document.createElement('div');
                     star.classList.add('star', colors[Math.floor(Math.random() * colors.length)]);
