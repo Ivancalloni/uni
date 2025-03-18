@@ -184,9 +184,59 @@
         cursor: pointer;
         border-radius: 5px;
     }
+    .star {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            opacity: 0.7;
+            animation: rotateStar 10s linear infinite;
+        }
+        .white { background-color: white; }
+        .pink { background-color: #E895D7; }
+        .gray { background-color: #7A7A7A; }
+        
+        @keyframes rotateStar {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .container {
+            width: 80%;
+            max-width: 700px;
+            margin: 15px auto;
+        }
+        .section {
+            background-color: #FFFFFF;
+            padding: 40px;
+            margin: 30px 0;
+            border-radius: 20px;
+            position: relative;
+            z-index: 10;
+        }
     </style>
 </head>
 <body>
+    <body>
+        <script>
+            function createStars() {
+                const colors = ['white', 'pink', 'gray'];
+                const numStars = 20;
+                for (let i = 0; i < numStars; i++) {
+                    let star = document.createElement('div');
+                    star.classList.add('star', colors[Math.floor(Math.random() * colors.length)]);
+                    star.style.left = Math.random() * 100 + 'vw';
+                    star.style.top = Math.random() * 200 + 'vh';
+                    star.style.transform = `scale(${Math.random() * 1.5})`;
+                    star.style.animationDuration = `${5 + Math.random() * 10}s`;
+                    document.body.appendChild(star);
+                }
+            }
+            
+            window.onload = createStars;
+        </script>
+    </body>
     <nav>
         <a href="#chi-sono">Chi sono</a>
         <a href="#miei-lavori">I miei lavori</a>
