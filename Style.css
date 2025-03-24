@@ -5,12 +5,17 @@ body {
     background-color: #293133;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
     width: 80%;
     max-width: 700px;
     margin: 15px auto;
+    padding-bottom: 80px; /* Space for footer */
+    flex: 1;
 }
 
 .section {
@@ -71,16 +76,9 @@ nav a:hover {
     background-image: url('LogoSitoSpecch.png');
 }
 
-.contact-list img {
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-    margin-right: 10px;
-}
-
 .scroll-to-top {
     position: fixed;
-    bottom: 20px;
+    bottom: 80px; /* Adjusted to be above footer */
     right: 20px;
     width: 50px;
     height: 50px;
@@ -92,19 +90,36 @@ nav a:hover {
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     font-size: 24px;
+    z-index: 900;
 }
 
 .scroll-to-top:hover {
     background-color: #E895D7;
 }
 
+/* Contact Form Styles */
+.contact-form {
+    width: 100%;
+    max-width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
 form input, form textarea {
     width: 100%;
     padding: 10px;
-    margin: 10px 0;
     border: 2px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
 form button {
@@ -120,6 +135,57 @@ form button {
 
 form button:hover {
     background-color: #333;
+}
+
+/* Skills Section */
+.skills-section {
+    padding: 40px 0;
+    color: white;
+    margin: 30px 0;
+}
+
+.skills-section h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.skill-name {
+    width: 25%;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.skill-name i {
+    margin-right: 10px;
+    color: #E895D7;
+}
+
+.skill-bar-container {
+    flex-grow: 1;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 0 15px;
+}
+
+.skill-bar {
+    height: 100%;
+    background-color: #E895D7;
+    border-radius: 6px;
+}
+
+.skill-level {
+    width: 10%;
+    text-align: right;
+    font-weight: 500;
 }
 
 .carousel-container {
@@ -152,6 +218,13 @@ form button:hover {
     font-size: 18px;
     font-weight: bold;
     text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-btn {
@@ -190,18 +263,55 @@ form button:hover {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 80%;
-    max-width: 500px;
+    max-width: 800px;
     text-align: center;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 1100;
+}
+
+.project-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.project-gallery img {
+    max-width: 48%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1050;
 }
 
 .close-btn {
     background: #E895D7;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background-color 0.3s;
 }
+
+.close-btn:hover {
+    background-color: #d27bc1;
+}
+
 .about-header {
     display: flex;
     align-items: center;
@@ -221,4 +331,113 @@ form button:hover {
 
 .download-btn:hover {
     background-color: #E895D7;
+}
+
+/* Footer styles */
+footer {
+    background-color: #E895D7;
+    width: 100%;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 900;
+}
+
+.footer-content {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.social-links {
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 24px;
+    margin: 0 15px;
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+}
+
+.contact-info {
+    color: white;
+    margin: 0;
+    font-size: 14px;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+    
+    .section {
+        padding: 20px;
+    }
+    
+    nav a {
+        margin: 0 8px;
+        font-size: 15px;
+    }
+    
+    .social-links a {
+        margin: 0 10px;
+    }
+    
+    .contact-info {
+        display: none;
+    }
+    
+    .project-gallery img {
+        max-width: 100%;
+    }
+    
+    .footer-content {
+        width: 95%;
+    }
+    
+    .skill-name {
+        width: 30%;
+    }
+    
+    .skill-level {
+        width: 15%;
+    }
+}
+
+@media (max-width: 480px) {
+    .skill-item {
+        flex-wrap: wrap;
+    }
+    
+    .skill-name {
+        width: 50%;
+        margin-bottom: 5px;
+    }
+    
+    .skill-bar-container {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .skill-level {
+        width: 100%;
+        text-align: left;
+    }
 }

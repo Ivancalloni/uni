@@ -9,13 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Ivan Calloni</title>
     <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <nav>
         <a href="#about">Chi sono</a>
+        <a href="#skills">Competenze</a>
         <a href="#works">Progetti</a>
-        <a href="#contact">Contatti</a>
+        <a href="#contact-form">Contattami</a>
         <a href="#map">Dove trovarmi</a>
     </nav>
 
@@ -28,7 +30,80 @@
         <section id="about" class="section">
             <h2>Chi sono</h2>
             <p>Ciao! Sono Ivan Calloni, studente di graphic design specializzato nella creazione di brand identity, manifesti e illustrazioni grafiche.</p>
-            <a href="CURRICULUM.PDF" download class="download-btn">Scarica CV</a>
+            <a href="Ivan Calloni CV.pdf" download class="download-btn">Scarica CV</a>
+        </section>
+
+        <section id="skills" class="skills-section">
+            <h2>Competenze</h2>
+            <div class="skill-item">
+                <div class="skill-name">
+                    <i class="fab fa-adobe"></i> Illustrator
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" style="width: 100%"></div>
+                </div>
+                <div class="skill-level">5/5</div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-name">
+                    <i class="fab fa-adobe"></i> InDesign
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" style="width: 100%"></div>
+                </div>
+                <div class="skill-level">5/5</div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-name">
+                    <i class="fab fa-adobe"></i> Photoshop
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" style="width: 80%"></div>
+                </div>
+                <div class="skill-level">4/5</div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-name">
+                    <i class="fab fa-adobe"></i> Premiere Pro
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" style="width: 60%"></div>
+                </div>
+                <div class="skill-level">3/5</div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-name">
+                    <i class="fab fa-adobe"></i> After Effects
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" style="width: 80%"></div>
+                </div>
+                <div class="skill-level">4/5</div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-name">
+                    <i class="fas fa-cube"></i> Blender
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" style="width: 60%"></div>
+                </div>
+                <div class="skill-level">3/5</div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-name">
+                    <i class="far fa-file-word"></i> Office
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" style="width: 100%"></div>
+                </div>
+                <div class="skill-level">5/5</div>
+            </div>
         </section>
 
         <section id="works" class="section">
@@ -37,24 +112,38 @@
                 <button class="carousel-btn left" onclick="moveSlide(-1)">‹</button>
                 <div class="carousel">
                     <div class="carousel-slide">
-                        <div class="work-item">Progetto 1</div>
-                        <div class="work-item">Progetto 2</div>
-                        <div class="work-item">Progetto 3</div>
-                        <div class="work-item">Progetto 5</div>
-                        <div class="work-item">Progetto 6</div>
-                        <div class="work-item">Progetto 7</div>
+                        <div class="work-item" onclick="openProject(1)">Progetto 1</div>
+                        <div class="work-item" onclick="openProject(2)">Progetto 2</div>
+                        <div class="work-item" onclick="openProject(3)">Progetto 3</div>
+                        <div class="work-item" onclick="openProject(4)">Progetto 4</div>
+                        <div class="work-item" onclick="openProject(5)">Progetto 5</div>
+                        <div class="work-item" onclick="openProject(6)">Progetto 6</div>
                     </div>
                 </div>
-                <button class="carousel-btn right" onclick="moveSlide(1)"></button>
+                <button class="carousel-btn right" onclick="moveSlide(1)">›</button>
             </div>
         </section>
 
-        <section id="contact" class="section">
-            <h2>Contatti</h2>
-            <p>Instagram: <a href="https://www.instagram.com/ivan.calloni/" target="_blank">@ivan.calloni</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/ivan-calloni-50b736271/" target="_blank">Ivan Calloni</a></p>
-            <p>Email: ivan.calloni.sch@gmail.com</a></p>
-            <p>Telefono: +39 3518007325</a></p>
+        <section id="contact-form" class="section">
+            <h2>Contattami</h2>
+            <form action="mailto:ivan.calloni.sch@gmail.com" method="post" enctype="text/plain" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Messaggio:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                
+                <button type="submit">Invia</button>
+            </form>
         </section>
 
         <section id="map" class="section">
@@ -66,6 +155,87 @@
         </section>
 
     </div>
+
+    <!-- Project Popups -->
+    <div id="project1" class="project-details">
+        <h3>Progetto 1</h3>
+        <div class="project-gallery">
+            <img src="project1-1.jpg" alt="Progetto 1 - Immagine 1">
+            <img src="project1-2.jpg" alt="Progetto 1 - Immagine 2">
+        </div>
+        <p>Descrizione dettagliata del progetto 1. Qui puoi spiegare il contesto, gli obiettivi, e il processo creativo.</p>
+        <button class="close-btn" onclick="closeProject('project1')">Chiudi</button>
+    </div>
+
+    <div id="project2" class="project-details">
+        <h3>Progetto 2</h3>
+        <div class="project-gallery">
+            <img src="project2-1.jpg" alt="Progetto 2 - Immagine 1">
+            <img src="project2-2.jpg" alt="Progetto 2 - Immagine 2">
+        </div>
+        <p>Descrizione dettagliata del progetto 2. Qui puoi spiegare il contesto, gli obiettivi, e il processo creativo.</p>
+        <button class="close-btn" onclick="closeProject('project2')">Chiudi</button>
+    </div>
+
+    <!-- Ripeti per gli altri progetti -->
+    <div id="project3" class="project-details">
+        <h3>Progetto 3</h3>
+        <div class="project-gallery">
+            <img src="project3-1.jpg" alt="Progetto 3 - Immagine 1">
+            <img src="project3-2.jpg" alt="Progetto 3 - Immagine 2">
+        </div>
+        <p>Descrizione dettagliata del progetto 3. Qui puoi spiegare il contesto, gli obiettivi, e il processo creativo.</p>
+        <button class="close-btn" onclick="closeProject('project3')">Chiudi</button>
+    </div>
+
+    <div id="project4" class="project-details">
+        <h3>Progetto 4</h3>
+        <div class="project-gallery">
+            <img src="project4-1.jpg" alt="Progetto 4 - Immagine 1">
+            <img src="project4-2.jpg" alt="Progetto 4 - Immagine 2">
+        </div>
+        <p>Descrizione dettagliata del progetto 4. Qui puoi spiegare il contesto, gli obiettivi, e il processo creativo.</p>
+        <button class="close-btn" onclick="closeProject('project4')">Chiudi</button>
+    </div>
+
+    <div id="project5" class="project-details">
+        <h3>Progetto 5</h3>
+        <div class="project-gallery">
+            <img src="project5-1.jpg" alt="Progetto 5 - Immagine 1">
+            <img src="project5-2.jpg" alt="Progetto 5 - Immagine 2">
+        </div>
+        <p>Descrizione dettagliata del progetto 5. Qui puoi spiegare il contesto, gli obiettivi, e il processo creativo.</p>
+        <button class="close-btn" onclick="closeProject('project5')">Chiudi</button>
+    </div>
+
+    <div id="project6" class="project-details">
+        <h3>Progetto 6</h3>
+        <div class="project-gallery">
+            <img src="project6-1.jpg" alt="Progetto 6 - Immagine 1">
+            <img src="project6-2.jpg" alt="Progetto 6 - Immagine 2">
+        </div>
+        <p>Descrizione dettagliata del progetto 6. Qui puoi spiegare il contesto, gli obiettivi, e il processo creativo.</p>
+        <button class="close-btn" onclick="closeProject('project6')">Chiudi</button>
+    </div>
+
+    <div class="overlay" id="projectOverlay"></div>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.instagram.com/ivan.calloni/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/ivan-calloni-50b736271/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:ivan.calloni.sch@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+393518007325"><i class="fas fa-phone"></i></a>
+            </div>
+            <p class="contact-info">
+                Instagram: <a href="https://www.instagram.com/ivan.calloni/" target="_blank">@ivan.calloni</a> | 
+                LinkedIn: <a href="https://www.linkedin.com/in/ivan-calloni-50b736271/" target="_blank">Ivan Calloni</a> | 
+                Email: ivan.calloni.sch@gmail.com | 
+                Telefono: +39 3518007325
+            </p>
+        </div>
+    </footer>
 
     <div class="scroll-to-top" onclick="scrollToTop()">↑</div>
 
@@ -83,6 +253,19 @@
             const total = items.length;
             index = (index + direction + total) % total;
             slide.style.transform = `translateX(${-index * 200}px)`;
+        }
+
+        // Project popup functions
+        function openProject(projectNum) {
+            document.getElementById(`project${projectNum}`).style.display = 'block';
+            document.getElementById('projectOverlay').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when popup is open
+        }
+
+        function closeProject(projectId) {
+            document.getElementById(projectId).style.display = 'none';
+            document.getElementById('projectOverlay').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
         }
     </script>
 
