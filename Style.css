@@ -27,7 +27,6 @@ h2 {
     margin-top: 0;
 }
 
-/* Navbar */
 nav {
     background-color: #E895D7;
     padding: 10px;
@@ -72,7 +71,6 @@ nav a:hover {
     background-image: url('LogoSitoSpecch.png');
 }
 
-/* Contatti */
 .contact-list img {
     width: 20px;
     height: 20px;
