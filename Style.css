@@ -202,22 +202,23 @@ form button:hover {
     cursor: pointer;
     border-radius: 5px;
 }
-
-.star {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background: transparent;
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    opacity: 0.7;
-    animation: rotateStar 10s linear infinite;
+.about-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.download-btn {
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
 }
 
-.white { background-color: white; }
-.pink { background-color: #E895D7; }
-.gray { background-color: #3b3b3b; }
-
-@keyframes rotateStar {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+.download-btn:hover {
+    background-color: #E895D7;
 }
+
+
