@@ -1,213 +1,231 @@
-<style>
-       
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap');
 
-        body {
-            font-family: "Readex Pro", sans-serif;
-            background-color: #293133;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            max-width: 700px;
-            margin: 15px auto;
-        }
-        .section {
-            background-color: #FFFFFF;
-            padding: 40px; 
-            margin: 30px 0;
-            border-radius: 20px;
-        }
-        h2 {
-            color: #333;
-            margin-top: 0;
-        }
-        nav {
-            background-color: #1f2527;
-            padding: 10px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .photo-section {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-        .photo {
-            width: 150px;
-            height: 150px;
-            background-image: url('FotoIvan.png');
-            background-size: cover;
-            background-position: center;
-            border-radius: 50%;
-            border: 5px solid white;
-            transition: transform 0.6s;
-        }
-        .photo:hover {
-            transform: rotateY(180deg);
-            background-image: url('LogoSitoSpecch.png');
-        }
-        .contact-list img {
-            width: 20px;
-            height: 20px;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background-color: #1f2527;
-            color: white;
-            text-align: center;
-            line-height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            font-size: 24px;
-        }
-        .scroll-to-top:hover {
-            background-color: #333;
-        }
-        form input, form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        form button {
-            width: 100%;
-            padding: 10px;
-            background-color: #1f2527;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-        }
-        form button:hover {
-            background-color: #333;
-        }
-        .carousel-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-    }
-    .carousel {
-        overflow: hidden;
-        width: 100%;
-        max-width: 600px;
-    }
-    .carousel-slide {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-    }
-    .work-item {
-        min-width: 180px;
-        height: 250px;
-        background-color: #E895D7;
-        border-radius: 20px;
-        margin: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-        font-weight: bold;
-        text-align: center;
-    }
-    .carousel-btn {
-        background-color: rgba(0, 0, 0, 0.3);
-        color: white;
-        border: none;
-        width: 40px;
-        height: 40px;
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 24px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background-color 0.3s;
-    }
-    .left { left: 10px; }
-    .right { right: 10px; }
-    .carousel-btn:hover {
-        background-color: rgba(0, 0, 0, 0.6);
-    }
+body {
+    font-family: "Readex Pro", sans-serif;
+    background-color: #293133;
+    margin: 0;
+    padding: 0;
 }
-    .project-details {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        width: 80%;
-        max-width: 500px;
-        text-align: center;
-    }
-    .close-btn {
-        background: #E895D7;
-        color: white;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-    .star {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background: transparent;
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-            opacity: 0.7;
-            animation: rotateStar 10s linear infinite;
-        }
-        .white { background-color: white; }
-        .pink { background-color: #E895D7; }
-        .gray { background-color: #3b3b3b; }
-        
-        @keyframes rotateStar {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        .container {
-            width: 80%;
-            max-width: 700px;
-            margin: 15px auto;
-        }
-        .section {
-            background-color: #FFFFFF;
-            padding: 40px;
-            margin: 30px 0;
-            border-radius: 20px;
-            position: relative;
-            z-index: 10;
-        }
-    </style>
+
+.container {
+    width: 80%;
+    max-width: 700px;
+    margin: 15px auto;
+}
+
+.section {
+    background-color: #FFFFFF;
+    padding: 40px;
+    margin: 30px 0;
+    border-radius: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+h2 {
+    color: #333;
+    margin-top: 0;
+}
+
+/* Navbar */
+nav {
+    background-color: #E895D7;
+    padding: 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Foto Profilo */
+.photo-section {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.photo {
+    width: 150px;
+    height: 150px;
+    background-image: url('FotoIvan.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 5px solid white;
+    transition: transform 0.6s;
+}
+
+.photo:hover {
+    transform: rotateY(180deg);
+    background-image: url('LogoSitoSpecch.png');
+}
+
+/* Contatti */
+.contact-list img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* Bottone Scroll-Up */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #1f2527;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 24px;
+}
+
+.scroll-to-top:hover {
+    background-color: #E895D7;
+}
+
+/* Form */
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1f2527;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+form button:hover {
+    background-color: #333;
+}
+
+/* Carousel */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.carousel {
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.work-item {
+    min-width: 180px;
+    height: 250px;
+    background-color: #E895D7;
+    border-radius: 20px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.carousel-btn {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.left { left: 10px; }
+.right { right: 10px; }
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Dettagli Progetti */
+.project-details {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.close-btn {
+    background: #E895D7;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Stelle Animate */
+.star {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    opacity: 0.7;
+    animation: rotateStar 10s linear infinite;
+}
+
+.white { background-color: white; }
+.pink { background-color: #E895D7; }
+.gray { background-color: #3b3b3b; }
+
+@keyframes rotateStar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
