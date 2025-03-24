@@ -50,7 +50,6 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Foto Profilo */
 .photo-section {
     display: flex;
     justify-content: center;
@@ -81,7 +80,6 @@ nav a:hover {
     margin-right: 10px;
 }
 
-/* Bottone Scroll-Up */
 .scroll-to-top {
     position: fixed;
     bottom: 20px;
@@ -102,7 +100,6 @@ nav a:hover {
     background-color: #E895D7;
 }
 
-/* Form */
 form input, form textarea {
     width: 100%;
     padding: 10px;
@@ -127,7 +124,6 @@ form button:hover {
     background-color: #333;
 }
 
-/* Carousel */
 .carousel-container {
     display: flex;
     align-items: center;
@@ -185,7 +181,6 @@ form button:hover {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-/* Dettagli Progetti */
 .project-details {
     display: none;
     position: fixed;
@@ -210,7 +205,6 @@ form button:hover {
     border-radius: 5px;
 }
 
-/* Stelle Animate */
 .star {
     position: absolute;
     width: 40px;
