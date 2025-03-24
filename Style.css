@@ -205,8 +205,10 @@ form button:hover {
 .about-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; 
+    width: 100%;
 }
+
 .download-btn {
     background-color: #333;
     color: white;
@@ -220,5 +222,3 @@ form button:hover {
 .download-btn:hover {
     background-color: #E895D7;
 }
-
-
