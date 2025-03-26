@@ -97,7 +97,6 @@ nav a:hover {
     background-color: #E895D7;
 }
 
-/* Contact Form Styles */
 .contact-form {
     width: 100%;
     max-width: 100%;
@@ -319,6 +318,12 @@ form button:hover {
     width: 100%;
 }
 
+.cv-download {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
 .download-btn {
     background-color: #333;
     color: white;
@@ -332,6 +337,7 @@ form button:hover {
 .download-btn:hover {
     background-color: #E895D7;
 }
+
 
 /* Footer styles */
 footer {
