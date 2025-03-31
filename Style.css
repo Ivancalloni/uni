@@ -175,6 +175,17 @@ form button:hover {
     margin: 0 15px;
 }
 
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.skills-category {
+    width: 100%;
+}
+
 .skill-bar {
     height: 100%;
     background-color: #E895D7;
@@ -185,6 +196,23 @@ form button:hover {
     width: 10%;
     text-align: right;
     font-weight: 500;
+}
+
+.skills-category h3 {
+    color: white;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #E895D7;
+}
+
+#about {
+    padding-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+    .skills-container {
+        flex-direction: column;
+    }
 }
 
 .carousel-container {
@@ -338,8 +366,6 @@ form button:hover {
     background-color: #E895D7;
 }
 
-
-/* Footer styles */
 footer {
     background-color: #E895D7;
     width: 100%;
