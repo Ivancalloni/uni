@@ -463,7 +463,7 @@ footer {
 }
 
 a:focus, button:focus, input:focus, textarea:focus, [tabindex]:focus {
-    outline: 3px solid #ff5bde;
+    outline: 3px solid #ffdff9;
     outline-offset: 2px;
 
 /* Responsive styles */
