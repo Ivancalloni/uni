@@ -447,6 +447,25 @@ footer {
     margin-bottom: 0;
   }
 
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #E895D7;
+    color: white;
+    padding: 8px;
+    z-index: 1001;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+a:focus, button:focus, input:focus, textarea:focus, [tabindex]:focus {
+    outline: 3px solid #ff5bde;
+    outline-offset: 2px;
+
 /* Responsive styles */
 @media (max-width: 768px) {
     .container {
