@@ -42,7 +42,7 @@
                     <h3>Programmi</h3>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <i class="fab fa-adobe"></i> Illustrator
+                            <img src="logoillustrator.png" alt="Illustrator" class="skill-logo"> Illustrator
                         </div>
                         <div class="skill-bar-container">
                             <div class="skill-bar" style="width: 100%"></div>
@@ -52,7 +52,7 @@
                     
                     <div class="skill-item">
                         <div class="skill-name">
-                            <i class="fab fa-adobe"></i> InDesign
+                            <img src="logoindesign.png" alt="InDesign" class="skill-logo"> InDesign
                         </div>
                         <div class="skill-bar-container">
                             <div class="skill-bar" style="width: 100%"></div>
@@ -62,7 +62,7 @@
                     
                     <div class="skill-item">
                         <div class="skill-name">
-                            <i class="fab fa-adobe"></i> Photoshop
+                            <img src="logophotoshop.png" alt="Photoshop" class="skill-logo"> Photoshop
                         </div>
                         <div class="skill-bar-container">
                             <div class="skill-bar" style="width: 80%"></div>
@@ -72,7 +72,7 @@
                     
                     <div class="skill-item">
                         <div class="skill-name">
-                            <i class="fab fa-adobe"></i> Premiere Pro
+                            <img src="logopremiere.png" alt="Premiere Pro" class="skill-logo"> Premiere Pro
                         </div>
                         <div class="skill-bar-container">
                             <div class="skill-bar" style="width: 60%"></div>
@@ -82,7 +82,7 @@
                     
                     <div class="skill-item">
                         <div class="skill-name">
-                            <i class="fab fa-adobe"></i> After Effects
+                            <img src="logoaftereffect.png" alt="After Effects" class="skill-logo"> After Effects
                         </div>
                         <div class="skill-bar-container">
                             <div class="skill-bar" style="width: 80%"></div>
@@ -92,7 +92,7 @@
                     
                     <div class="skill-item">
                         <div class="skill-name">
-                            <i class="fas fa-cube"></i> Blender
+                            <img src="logoblander.png" alt="Blender" class="skill-logo"> Blender
                         </div>
                         <div class="skill-bar-container">
                             <div class="skill-bar" style="width: 60%"></div>
@@ -102,13 +102,14 @@
                     
                     <div class="skill-item">
                         <div class="skill-name">
-                            <i class="far fa-file-word"></i> Office
+                            <img src="logoofficee.png" alt="Office" class="skill-logo"> Office
                         </div>
                         <div class="skill-bar-container">
                             <div class="skill-bar" style="width: 100%"></div>
                         </div>
                         <div class="skill-level">5/5</div>
                     </div>
+                </div>
                 </div>
                 
                 <div class="skills-category">
@@ -172,8 +173,14 @@
                     <textarea id="message" name="message" rows="4" required></textarea>
                 </div>
                 
-                <button type="submit">Invia</button>
             </form>
+            <form action="/submit" method="post">
+                <div class="form-group privacy-group">
+                  <input type="checkbox" id="privacy" name="privacy" required>
+                  <label for="privacy">Accetto la <a href="/privacy-policy" target="_blank">Privacy Policy</a></label>
+                </div>
+                <button type="submit">Invia</button>
+              </form>
         </section>
 
         <section id="map" class="section">

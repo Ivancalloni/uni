@@ -14,12 +14,12 @@ body {
     width: 80%;
     max-width: 700px;
     margin: 15px auto;
-    padding-bottom: 80px; /* Space for footer */
+    padding-bottom: 80px; 
     flex: 1;
 }
 
 .section {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     padding: 40px;
     margin: 30px 0;
     border-radius: 20px;
@@ -136,7 +136,6 @@ form button:hover {
     background-color: #333;
 }
 
-/* Skills Section */
 .skills-section {
     padding: 40px 0;
     color: white;
@@ -203,6 +202,25 @@ form button:hover {
     margin-bottom: 15px;
     padding-bottom: 5px;
     border-bottom: 2px solid #E895D7;
+}
+
+.skill-name i, .skill-name img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #E895D7;
+    font-size: 18px;
+}
+
+.skill-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    object-fit: contain;
+    vertical-align: middle;
 }
 
 #about {
@@ -412,6 +430,22 @@ footer {
 .contact-info a:hover {
     text-decoration: underline;
 }
+
+.privacy-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .privacy-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+  }
+  
+  .privacy-group label {
+    display: inline;
+    margin-bottom: 0;
+  }
 
 /* Responsive styles */
 @media (max-width: 768px) {
