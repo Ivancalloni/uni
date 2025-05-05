@@ -593,7 +593,7 @@ footer {
 }
 
 .social-links a:hover, .social-links a:focus {
-    color: #1f2527;
+    color: #000000;
     transform: scale(1.1);
 }
 
