@@ -10,7 +10,7 @@ let isAnimating = false; // Flag per prevenire azioni multiple durante le animaz
 
 // Funzione di inizializzazione delle card ottimizzata
 function initCards() {
-    cards = document.querySelectorAll('.card');
+    cards = Array.from(document.querySelectorAll('.card'));
     const totalCards = cards.length;
     
     if (!cards || totalCards === 0) return;
@@ -24,10 +24,10 @@ function initCards() {
         
         // Imposta lo stile iniziale
         if (index === 0) {
-            card.style.opacity = 1;
+            card.style.opacity = '1';
             card.style.transform = 'scale(1) translateY(0) rotate(0deg)';
         } else {
-            card.style.opacity = index < 3 ? 0.85 - (index * 0.15) : 0;
+            card.style.opacity = index < 3 ? (0.85 - (index * 0.15)).toString() : '0';
             card.style.transform = `scale(${0.95 - (index * 0.05)}) translateY(${index * 8}px) rotate(0deg)`;
         }
         
@@ -99,7 +99,7 @@ function endDrag(e) {
     cards[currentCardIndex].classList.remove('dragging');
     
     // Calcola lo spostamento
-    const clientX = e.type === 'mouseup' ? e.clientX : e.changedTouches[0].clientX;
+    const clientX = e.type === 'mouseup' ? e.clientX : (e.changedTouches ? e.changedTouches[0].clientX : touchStartX);
     const deltaX = clientX - touchStartX;
     
     // Esegui l'azione in base alla direzione dello swipe
@@ -169,18 +169,23 @@ function handleTouchEnd(e) {
     cards[currentCardIndex].classList.remove('dragging');
     
     // Verifica se è stato fatto uno swipe finale
-    const lastTouch = e.changedTouches[0];
-    const deltaX = lastTouch.clientX - touchStartX;
-    
-    // Esegui l'azione in base alla direzione dello swipe
-    if (deltaX > swipeThreshold) {
-        // Swipe a destra - like (passa al prossimo)
-        likeCard();
-    } else if (deltaX < -swipeThreshold) {
-        // Swipe a sinistra - reject (torna al precedente)
-        rejectCard();
+    if (e.changedTouches && e.changedTouches.length > 0) {
+        const lastTouch = e.changedTouches[0];
+        const deltaX = lastTouch.clientX - touchStartX;
+        
+        // Esegui l'azione in base alla direzione dello swipe
+        if (deltaX > swipeThreshold) {
+            // Swipe a destra - like (passa al prossimo)
+            likeCard();
+        } else if (deltaX < -swipeThreshold) {
+            // Swipe a sinistra - reject (torna al precedente)
+            rejectCard();
+        } else {
+            // Ritorna alla posizione originale
+            resetCardPosition();
+        }
     } else {
-        // Ritorna alla posizione originale
+        // Se per qualche motivo non ci sono changedTouches, resettiamo la posizione
         resetCardPosition();
     }
     
@@ -189,19 +194,21 @@ function handleTouchEnd(e) {
 
 // Funzione per ripristinare la posizione della card
 function resetCardPosition() {
+    if (currentCardIndex >= cards.length) return;
+    
     cards[currentCardIndex].style.transform = 'scale(1) translateY(0) rotate(0deg)';
     cards[currentCardIndex].style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.2)';
 }
 
 // Funzione per gestire lo swipe a destra (like - prossima card)
 function likeCard() {
-    if (isAnimating) return;
+    if (isAnimating || currentCardIndex >= cards.length) return;
     isAnimating = true;
     
     // Anima la card fuori dallo schermo verso destra
     const currentCard = cards[currentCardIndex];
     currentCard.style.animation = 'swipeRight 0.5s forwards';
-    currentCard.style.opacity = 0;
+    currentCard.style.opacity = '0';
     
     // Passa alla card successiva
     setTimeout(() => {
@@ -212,12 +219,12 @@ function likeCard() {
 
 // Funzione per gestire lo swipe a sinistra (reject - card precedente)
 function rejectCard() {
-    if (isAnimating) return;
+    if (isAnimating || currentCardIndex >= cards.length) return;
     isAnimating = true;
     
     // Anima la card corrente fuori dallo schermo verso sinistra
     cards[currentCardIndex].style.animation = 'swipeLeft 0.5s forwards';
-    cards[currentCardIndex].style.opacity = 0;
+    cards[currentCardIndex].style.opacity = '0';
     
     // Torna alla card precedente
     setTimeout(() => {
@@ -230,9 +237,11 @@ function rejectCard() {
 function moveToNextCard() {
     const totalCards = cards.length;
     
+    if (totalCards === 0) return;
+    
     // Riposiziona la card vecchia
     cards[currentCardIndex].style.animation = '';
-    cards[currentCardIndex].style.zIndex = 0;
+    cards[currentCardIndex].style.zIndex = '0';
     cards[currentCardIndex].style.transform = 'scale(0.8) translateY(30px)';
     
     // Incrementa l'indice della card corrente
@@ -246,14 +255,16 @@ function moveToNextCard() {
 function moveToPrevCard() {
     const totalCards = cards.length;
     
+    if (totalCards === 0) return;
+    
     // Decrementa l'indice della card corrente
     currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
     
     // Resetta la trasformazione della nuova card corrente
     cards[currentCardIndex].style.animation = '';
     cards[currentCardIndex].style.transform = 'translateX(-1000px) rotate(-30deg)';
-    cards[currentCardIndex].style.opacity = 1;
-    cards[currentCardIndex].style.zIndex = totalCards;
+    cards[currentCardIndex].style.opacity = '1';
+    cards[currentCardIndex].style.zIndex = totalCards.toString();
     
     // Anima il ritorno della card
     setTimeout(() => {
@@ -268,22 +279,24 @@ function moveToPrevCard() {
 function updateCardsPosition() {
     const totalCards = cards.length;
     
+    if (totalCards === 0) return;
+    
     cards.forEach((card, index) => {
         // Calcola la posizione relativa rispetto alla card corrente
         let relativePos = (index - currentCardIndex + totalCards) % totalCards;
         
         // Imposta z-index
-        card.style.zIndex = totalCards - relativePos;
+        card.style.zIndex = (totalCards - relativePos).toString();
         
         // Imposta trasformazione e opacità
         if (relativePos === 0) {
             // Card corrente
-            card.style.opacity = 1;
+            card.style.opacity = '1';
             card.style.transform = 'scale(1) translateY(0) rotate(0deg)';
             card.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.2)';
         } else {
             // Card successive
-            card.style.opacity = relativePos < 3 ? 0.85 - (relativePos * 0.15) : 0;
+            card.style.opacity = relativePos < 3 ? (0.85 - (relativePos * 0.15)).toString() : '0';
             card.style.transform = `scale(${0.95 - (relativePos * 0.05)}) translateY(${relativePos * 8}px) rotate(0deg)`;
             card.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
         }
@@ -312,14 +325,14 @@ function viewProject() {
             // Mostra l'overlay con una transizione
             modalBackdrop.style.display = 'block';
             setTimeout(() => {
-                modalBackdrop.style.opacity = 1;
+                modalBackdrop.style.opacity = '1';
             }, 10);
             
             // Mostra i dettagli del progetto con una transizione
             projectElement.style.display = 'block';
-            projectElement.style.opacity = 0;
+            projectElement.style.opacity = '0';
             setTimeout(() => {
-                projectElement.style.opacity = 1;
+                projectElement.style.opacity = '1';
             }, 10);
             
             // Aggiungi funzionalità di chiusura allo sfondo
@@ -335,11 +348,11 @@ function closeProject(projectId) {
     const projectElement = document.getElementById(projectId);
     if (projectElement) {
         // Animazione di chiusura
-        projectElement.style.opacity = 0;
+        projectElement.style.opacity = '0';
         
         const modalBackdrop = document.querySelector('.modal-backdrop');
         if (modalBackdrop) {
-            modalBackdrop.style.opacity = 0;
+            modalBackdrop.style.opacity = '0';
         }
         
         // Dopo la transizione, nascondi gli elementi
@@ -370,7 +383,9 @@ function setupEventListeners() {
     closeButtons.forEach(button => {
         button.addEventListener('click', function() {
             const projectId = this.closest('.project-details').id;
-            closeProject(projectId);
+            if (projectId) {
+                closeProject(projectId);
+            }
         });
     });
 
@@ -400,8 +415,157 @@ function setupEventListeners() {
     });
 }
 
+// Aggiungi le animazioni CSS necessarie se non esistono già
+function addCSSAnimations() {
+    // Verifica se le animazioni esistono già
+    let styleSheet = document.getElementById('card-animations');
+    if (!styleSheet) {
+        styleSheet = document.createElement('style');
+        styleSheet.id = 'card-animations';
+        styleSheet.innerHTML = `
+            @keyframes swipeRight {
+                to {
+                    transform: translateX(1000px) rotate(30deg);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes swipeLeft {
+                to {
+                    transform: translateX(-1000px) rotate(-30deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(styleSheet);
+    }
+}
+
 // Initialize everything on DOM content loaded
 document.addEventListener('DOMContentLoaded', function() {
+    addCSSAnimations();
     initCards();
     setupEventListeners();
+});
+// Script JavaScript per il portfolio
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementi del sistema di swipe per le card
+    const cards = document.querySelectorAll('.card');
+    const likeButton = document.querySelector('.like');
+    const rejectButton = document.querySelector('.reject');
+    const viewButton = document.querySelector('.view');
+    const projectDetails = document.querySelectorAll('.project-details');
+    const closeButtons = document.querySelectorAll('.close-btn');
+    const modalBackdrop = document.querySelector('.modal-backdrop');
+    const scrollToTopButton = document.querySelector('.scroll-to-top');
+    
+    let currentCardIndex = 0;
+    
+    // Funzione per mostrare solo la card corrente
+    function updateCards() {
+        cards.forEach((card, index) => {
+            card.classList.remove('active');
+            if (index === currentCardIndex) {
+                card.classList.add('active');
+            }
+        });
+    }
+    
+    // Passare alla card successiva
+    likeButton.addEventListener('click', function() {
+        if (currentCardIndex < cards.length - 1) {
+            currentCardIndex++;
+            updateCards();
+        }
+    });
+    
+    // Tornare alla card precedente
+    rejectButton.addEventListener('click', function() {
+        if (currentCardIndex > 0) {
+            currentCardIndex--;
+            updateCards();
+        }
+    });
+    
+    // Visualizzare i dettagli del progetto
+    viewButton.addEventListener('click', function() {
+        const currentCard = cards[currentCardIndex];
+        const projectId = currentCard.getAttribute('data-project-id');
+        const projectDetail = document.getElementById('project' + projectId);
+        
+        if (projectDetail) {
+            projectDetail.style.display = 'block';
+            modalBackdrop.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Impedisce lo scroll della pagina
+        }
+    });
+    
+    // Chiudere i dettagli del progetto
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            projectDetails.forEach(detail => {
+                detail.style.display = 'none';
+            });
+            modalBackdrop.style.display = 'none';
+            document.body.style.overflow = ''; // Ripristina lo scroll della pagina
+        });
+    });
+    
+    // Chiudere i dettagli del progetto cliccando fuori
+    modalBackdrop.addEventListener('click', function() {
+        projectDetails.forEach(detail => {
+            detail.style.display = 'none';
+        });
+        modalBackdrop.style.display = 'none';
+        document.body.style.overflow = ''; // Ripristina lo scroll della pagina
+    });
+    
+    // Gestione pulsante scroll-to-top
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollToTopButton.classList.add('visible');
+        } else {
+            scrollToTopButton.classList.remove('visible');
+        }
+    });
+    
+    scrollToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Gestione della tastiera per accessibilità
+    document.addEventListener('keydown', function(e) {
+        // Esc per chiudere i popup
+        if (e.key === 'Escape') {
+            projectDetails.forEach(detail => {
+                if (detail.style.display === 'block') {
+                    detail.style.display = 'none';
+                    modalBackdrop.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+        
+        // Frecce sinistra/destra per navigare tra le card
+        if (e.key === 'ArrowLeft') {
+            if (currentCardIndex > 0) {
+                currentCardIndex--;
+                updateCards();
+            }
+        } else if (e.key === 'ArrowRight') {
+            if (currentCardIndex < cards.length - 1) {
+                currentCardIndex++;
+                updateCards();
+            }
+        }
+        
+        // Enter per visualizzare i dettagli del progetto attivo
+        if (e.key === 'Enter' && document.activeElement === viewButton) {
+            viewButton.click();
+        }
+    });
 });
