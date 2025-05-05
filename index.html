@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="Style.css">
 <html lang="it">
-    
-<link rel="icon" type="img/png" href="LogoSito.png">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Ivan Calloni</title>
     <link rel="stylesheet" href="Style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="img/png" href="LogoSito.png">
 </head>
 <body>
     <a href="#main-content" class="skip-link">Vai al contenuto principale</a>
@@ -20,21 +17,17 @@
         <a href="#works" tabindex="0">Progetti</a>
         <a href="#contact-form" tabindex="0">Contattami</a>
         <a href="#map"tabindex="0">Dove trovarmi</a>
-        
     </nav>
 
     <div class="container" id="main-content">
-
         <div class="photo-section">
             <div class="photo"></div>
         </div>
 
         <section id="about" class="section">
-            <div class="about-header">
-                <h2>Chi sono</h2>
-                <a href="Ivan Calloni CV.pdf" download class="download-btn">Scarica CV</a>
-            </div>
+            <h2>Chi sono</h2>
             <p>Ciao! Sono Ivan Calloni, uno studente di <strong>graphic design</strong> specializzato nella creazione di <strong>brand identity</strong>, <strong>manifesti</strong> e <strong>illustrazioni grafiche</strong>. Ho una formazione solida sia teorica che pratica nel design grafico, con esperienza diretta nell'uso dei principali software del settore. Ho sviluppato anche competenze nel <strong>problem solving</strong>, nella <strong>comunicazione</strong> e nel <strong>lavoro di gruppo</strong> grazie a esperienze lavorative e artistiche. La mia passione per il design, il cinema e le forme di comunicazione non convenzionali mi spinge a cercare sempre nuove opportunità di crescita nel campo.</p>
+            <a href="Ivan Calloni CV.pdf" download class="download-btn">Scarica CV</a>
         </section>
 
         <section id="skills" class="skills-section">
@@ -112,7 +105,6 @@
                         <div class="skill-level">5/5</div>
                     </div>
                 </div>
-                </div>
                 
                 <div class="skills-category">
                     <h3>Lingue</h3>
@@ -141,19 +133,38 @@
 
         <section id="works" class="section">
             <h2>Progetti</h2>
-            <div class="carousel-container">
-                <button class="carousel-btn left" onclick="moveSlide(-1)">‹</button>
-                <div class="carousel">
-                    <div class="carousel-slide">
-                        <div class="work-item" onclick="openProject(1)">Progetto 1</div>
-                        <div class="work-item" onclick="openProject(2)">Progetto 2</div>
-                        <div class="work-item" onclick="openProject(3)">Progetto 3</div>
-                        <div class="work-item" onclick="openProject(4)">Progetto 4</div>
-                        <div class="work-item" onclick="openProject(5)">Progetto 5</div>
-                        <div class="work-item" onclick="openProject(6)">Progetto 6</div>
+            <div class="swipe-container">
+                <div class="card-stack">
+                    <div class="card" data-project-id="1">
+                        <div class="card-content">Progetto 1</div>
+                        <div class="card-title-bar">Brand Identity</div>
+                    </div>
+                    <div class="card" data-project-id="2">
+                        <div class="card-content">Progetto 2</div>
+                        <div class="card-title-bar">Poster Design</div>
+                    </div>
+                    <div class="card" data-project-id="3">
+                        <div class="card-content">Progetto 3</div>
+                        <div class="card-title-bar">Illustrazione</div>
+                    </div>
+                    <div class="card" data-project-id="4">
+                        <div class="card-content">Progetto 4</div>
+                        <div class="card-title-bar">UI/UX Design</div>
+                    </div>
+                    <div class="card" data-project-id="5">
+                        <div class="card-content">Progetto 5</div>
+                        <div class="card-title-bar">Motion Graphics</div>
+                    </div>
+                    <div class="card" data-project-id="6">
+                        <div class="card-content">Progetto 6</div>
+                        <div class="card-title-bar">3D Design</div>
                     </div>
                 </div>
-                <button class="carousel-btn right" onclick="moveSlide(1)">›</button>
+                <div class="swipe-controls">
+                    <button class="swipe-button reject" aria-label="Progetto precedente"><i class="fas fa-arrow-left"></i></button>
+                    <button class="swipe-button view" aria-label="Visualizza progetto"><i class="fas fa-info"></i></button>
+                    <button class="swipe-button like" aria-label="Prossimo progetto"><i class="fas fa-arrow-right"></i></button>
+                </div>
             </div>
         </section>
 
@@ -175,14 +186,13 @@
                     <textarea id="message" name="message" rows="4" required></textarea>
                 </div>
                 
-            </form>
-            <form action="/submit" method="post">
                 <div class="form-group privacy-group">
-                  <input type="checkbox" id="privacy" name="privacy" required>
-                  <label for="privacy">Accetto la <a href="/privacy-policy" target="_blank">Privacy Policy</a></label>
+                    <input type="checkbox" id="privacy" name="privacy" required>
+                    <label for="privacy">Accetto la <a href="/privacy-policy" target="_blank">Privacy Policy</a></label>
                 </div>
+                
                 <button type="submit">Invia</button>
-              </form>
+            </form>
         </section>
 
         <section id="map" class="section">
@@ -192,7 +202,6 @@
                 width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
             </iframe>
         </section>
-
     </div>
 
     <!-- Project Popups -->
@@ -216,7 +225,6 @@
         <button class="close-btn" onclick="closeProject('project2')">Chiudi</button>
     </div>
 
-    <!-- Ripeti per gli altri progetti -->
     <div id="project3" class="project-details">
         <h3>Progetto 3</h3>
         <div class="project-gallery">
@@ -278,68 +286,6 @@
 
     <div class="scroll-to-top" onclick="scrollToTop()">↑</div>
 
-    <script>
-        // Scroll to top function
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Carousel function
-        let index = 0;
-        function moveSlide(direction) {
-            const slide = document.querySelector('.carousel-slide');
-            const items = document.querySelectorAll('.work-item');
-            const total = items.length;
-            index = (index + direction + total) % total;
-            slide.style.transform = `translateX(${-index * 200}px)`;
-        }
-
-        // Project popup functions
-        function openProject(projectNum) {
-            document.getElementById(`project${projectNum}`).style.display = 'block';
-            document.getElementById('projectOverlay').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when popup is open
-        }
-
-        function closeProject(projectId) {
-            document.getElementById(projectId).style.display = 'none';
-            document.getElementById('projectOverlay').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Re-enable scrolling
-        }
-
-       
-document.addEventListener('keydown', function(e) {
-    // Chiudi progetto con ESC
-    if (e.key === 'Escape') {
-        const visibleProject = document.querySelector('.project-details[style*="display: block"]');
-        if (visibleProject) {
-            closeProject(visibleProject.id);
-        }
-    }
-});
-
-// Modifica le funzioni di apertura per gestire correttamente il focus
-function openProject(projectNum) {
-    const project = document.getElementById(`project${projectNum}`);
-    project.style.display = 'block';
-    document.getElementById('projectOverlay').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-    
-    // Sposta il focus al popup e imposta il focus trap
-    const closeButton = project.querySelector('.close-btn');
-    closeButton.focus();
-}
-
-function closeProject(projectId) {
-    document.getElementById(projectId).style.display = 'none';
-    document.getElementById('projectOverlay').style.display = 'none';
-    document.body.style.overflow = 'auto';
-    
-    // Ripristina il focus
-    const projectNumber = projectId.replace('project', '');
-    document.querySelector(`.work-item[onclick="openProject(${projectNumber})"]`).focus();
-}
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
