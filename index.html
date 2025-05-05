@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -7,6 +8,49 @@
     <link rel="stylesheet" href="Style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="img/png" href="LogoSito.png">
+    <style>
+        /* Aggiungiamo stili aggiuntivi inline per assicurarci che funzionino */
+        body {
+            padding-bottom: 250px; /* Spazio per il footer fisso */
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 900;
+        }
+        
+        /* Stili per migliorare la sezione progetti */
+        .card-stack {
+            height: 300px;
+        }
+        
+        .card {
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Stili per l'overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            display: none;
+        }
+        
+        /* Stile per il contenitore principale */
+        .container {
+            padding-bottom: 0; /* Rimuoviamo il padding-bottom perché abbiamo aggiunto padding al body */
+        }
+    </style>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Vai al contenuto principale</a>
@@ -16,7 +60,7 @@
         <a href="#skills" tabindex="0">Competenze</a>
         <a href="#works" tabindex="0">Progetti</a>
         <a href="#contact-form" tabindex="0">Contattami</a>
-        <a href="#map"tabindex="0">Dove trovarmi</a>
+        <a href="#map" tabindex="0">Dove trovarmi</a>
     </nav>
 
     <div class="container" id="main-content">
@@ -131,42 +175,150 @@
             </div>
         </section>
 
-        <section id="works" class="section">
-            <h2>Progetti</h2>
-            <div class="swipe-container">
-                <div class="card-stack">
-                    <div class="card" data-project-id="1">
-                        <div class="card-content">Progetto 1</div>
-                        <div class="card-title-bar">Brand Identity</div>
-                    </div>
-                    <div class="card" data-project-id="2">
-                        <div class="card-content">Progetto 2</div>
-                        <div class="card-title-bar">Poster Design</div>
-                    </div>
-                    <div class="card" data-project-id="3">
-                        <div class="card-content">Progetto 3</div>
-                        <div class="card-title-bar">Illustrazione</div>
-                    </div>
-                    <div class="card" data-project-id="4">
-                        <div class="card-content">Progetto 4</div>
-                        <div class="card-title-bar">UI/UX Design</div>
-                    </div>
-                    <div class="card" data-project-id="5">
-                        <div class="card-content">Progetto 5</div>
-                        <div class="card-title-bar">Motion Graphics</div>
-                    </div>
-                    <div class="card" data-project-id="6">
-                        <div class="card-content">Progetto 6</div>
-                        <div class="card-title-bar">3D Design</div>
-                    </div>
+       <!-- Sezione Lavori con sistema di swipe stile Tinder -->
+<section id="works" class="section">
+    <h2>I Miei Lavori</h2>
+    <div class="swipe-container">
+        <div class="card-stack">
+            <!-- Card 1 -->
+            <div class="card" data-project-id="1" style="background-image: url('project1-1.jpg')">
+                <div class="card-content">
+                    <h3>Brand Identity</h3>
+                    <p>Logo design e identità visiva</p>
                 </div>
-                <div class="swipe-controls">
-                    <button class="swipe-button reject" aria-label="Progetto precedente"><i class="fas fa-arrow-left"></i></button>
-                    <button class="swipe-button view" aria-label="Visualizza progetto"><i class="fas fa-info"></i></button>
-                    <button class="swipe-button like" aria-label="Prossimo progetto"><i class="fas fa-arrow-right"></i></button>
-                </div>
+                <div class="card-title-bar">Brand Identity</div>
             </div>
-        </section>
+            
+            <!-- Card 2 -->
+            <div class="card" data-project-id="2" style="background-image: url('project2-1.jpg')">
+                <div class="card-content">
+                    <h3>Poster Design</h3>
+                    <p>Manifesto promozionale</p>
+                </div>
+                <div class="card-title-bar">Poster Design</div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="card" data-project-id="3" style="background-image: url('project3-1.jpg')">
+                <div class="card-content">
+                    <h3>Illustrazione</h3>
+                    <p>Illustrazione digitale</p>
+                </div>
+                <div class="card-title-bar">Illustrazione</div>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="card" data-project-id="4" style="background-image: url('project4-1.jpg')">
+                <div class="card-content">
+                    <h3>UI/UX Design</h3>
+                    <p>Design interfaccia utente</p>
+                </div>
+                <div class="card-title-bar">UI/UX Design</div>
+            </div>
+            
+            <!-- Card 5 -->
+            <div class="card" data-project-id="5" style="background-image: url('project5-1.jpg')">
+                <div class="card-content">
+                    <h3>Motion Graphics</h3>
+                    <p>Animazione e grafica in movimento</p>
+                </div>
+                <div class="card-title-bar">Motion Graphics</div>
+            </div>
+            
+            <!-- Card 6 -->
+            <div class="card" data-project-id="6" style="background-image: url('project6-1.jpg')">
+                <div class="card-content">
+                    <h3>3D Design</h3>
+                    <p>Modellazione e rendering 3D</p>
+                </div>
+                <div class="card-title-bar">3D Design</div>
+            </div>
+        </div>
+        
+        <!-- Controlli di navigazione -->
+        <div class="swipe-controls">
+            <button class="swipe-button reject" aria-label="Progetto precedente">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <button class="swipe-button view" aria-label="Visualizza progetto">
+                <i class="fas fa-info"></i>
+            </button>
+            <button class="swipe-button like" aria-label="Prossimo progetto">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Popup dei dettagli progetto -->
+<div id="project1" class="project-details">
+    <h3>Brand Identity</h3>
+    <div class="project-gallery">
+        <img src="project1-1.jpg" alt="Brand Identity - Immagine 1">
+        <img src="project1-2.jpg" alt="Brand Identity - Immagine 2">
+    </div>
+    <p>Ho sviluppato questa brand identity per un cliente nel settore della ristorazione. Il progetto ha incluso la creazione del logo, la palette colori, i font e tutti gli elementi visivi necessari per una identità coerente. L'obiettivo era comunicare eleganza e tradizione culinaria italiana con un tocco contemporaneo.</p>
+    <p>Il processo creativo è iniziato con una fase di ricerca approfondita sul target di riferimento e sui concorrenti, seguita da una serie di schizzi e proposte, fino alla selezione e perfezionamento del design finale.</p>
+    <button class="close-btn">Chiudi</button>
+</div>
+
+<div id="project2" class="project-details">
+    <h3>Poster Design</h3>
+    <div class="project-gallery">
+        <img src="project2-1.jpg" alt="Poster Design - Immagine 1">
+        <img src="project2-2.jpg" alt="Poster Design - Immagine 2">
+    </div>
+    <p>Questo poster è stato creato per un evento culturale locale. Ho lavorato con una combinazione di tipografia creativa e illustrazione per catturare l'essenza dell'evento e attirare l'attenzione del pubblico.</p>
+    <p>La sfida principale è stata bilanciare l'impatto visivo con la chiarezza delle informazioni, creando un design che fosse sia accattivante che funzionale.</p>
+    <button class="close-btn">Chiudi</button>
+</div>
+
+<div id="project3" class="project-details">
+    <h3>Illustrazione</h3>
+    <div class="project-gallery">
+        <img src="project3-1.jpg" alt="Illustrazione - Immagine 1">
+        <img src="project3-2.jpg" alt="Illustrazione - Immagine 2">
+    </div>
+    <p>Questa serie di illustrazioni digitali è stata creata per una campagna pubblicitaria. Ho utilizzato uno stile distintivo con colori vivaci e forme geometriche per comunicare il messaggio del brand in modo memorabile.</p>
+    <p>Il processo ha incluso la creazione di bozzetti iniziali, la definizione dello stile visivo e la finalizzazione delle illustrazioni con Adobe Illustrator.</p>
+    <button class="close-btn">Chiudi</button>
+</div>
+
+<div id="project4" class="project-details">
+    <h3>UI/UX Design</h3>
+    <div class="project-gallery">
+        <img src="project4-1.jpg" alt="UI/UX Design - Immagine 1">
+        <img src="project4-2.jpg" alt="UI/UX Design - Immagine 2">
+    </div>
+    <p>Questo progetto di UI/UX è stato sviluppato per un'applicazione mobile nel settore del fitness. Ho progettato un'interfaccia intuitiva e coinvolgente, concentrandomi sull'esperienza utente e sulla facilità d'uso.</p>
+    <p>Il lavoro ha incluso la creazione di wireframe, prototipi interattivi e la definizione di un sistema di design coerente. Ho utilizzato strumenti come Adobe XD per la prototipazione e test con utenti reali per perfezionare l'esperienza.</p>
+    <button class="close-btn">Chiudi</button>
+</div>
+
+<div id="project5" class="project-details">
+    <h3>Motion Graphics</h3>
+    <div class="project-gallery">
+        <img src="project5-1.jpg" alt="Motion Graphics - Immagine 1">
+        <img src="project5-2.jpg" alt="Motion Graphics - Immagine 2">
+    </div>
+    <p>Questo progetto di motion graphics è stato creato per i social media di un brand nel settore tecnologico. Ho sviluppato una serie di animazioni che comunicano in modo dinamico i valori e i servizi dell'azienda.</p>
+    <p>Le animazioni sono state realizzate utilizzando After Effects, con un'attenzione particolare al timing e alla fluidità del movimento per mantenere l'attenzione degli spettatori.</p>
+    <button class="close-btn">Chiudi</button>
+</div>
+
+<div id="project6" class="project-details">
+    <h3>3D Design</h3>
+    <div class="project-gallery">
+        <img src="project6-1.jpg" alt="3D Design - Immagine 1">
+        <img src="project6-2.jpg" alt="3D Design - Immagine 2">
+    </div>
+    <p>Questo progetto 3D è stato realizzato per un'azienda di arredamento. Ho creato modelli 3D dettagliati e rendering fotorealistici per visualizzare i prodotti in ambienti d'uso.</p>
+    <p>Il lavoro è stato realizzato con Blender, curando particolarmente l'illuminazione, i materiali e le texture per ottenere un risultato il più realistico possibile.</p>
+    <button class="close-btn">Chiudi</button>
+</div>
+
+
+
 
         <section id="contact-form" class="section">
             <h2>Contattami</h2>
@@ -206,7 +358,7 @@
 
     <!-- Project Popups -->
     <div id="project1" class="project-details">
-        <h3>Progetto 1</h3>
+        <h3>Brand Identity</h3>
         <div class="project-gallery">
             <img src="project1-1.jpg" alt="Progetto 1 - Immagine 1">
             <img src="project1-2.jpg" alt="Progetto 1 - Immagine 2">
@@ -216,7 +368,7 @@
     </div>
 
     <div id="project2" class="project-details">
-        <h3>Progetto 2</h3>
+        <h3>Poster Design</h3>
         <div class="project-gallery">
             <img src="project2-1.jpg" alt="Progetto 2 - Immagine 1">
             <img src="project2-2.jpg" alt="Progetto 2 - Immagine 2">
@@ -226,7 +378,7 @@
     </div>
 
     <div id="project3" class="project-details">
-        <h3>Progetto 3</h3>
+        <h3>Illustrazione</h3>
         <div class="project-gallery">
             <img src="project3-1.jpg" alt="Progetto 3 - Immagine 1">
             <img src="project3-2.jpg" alt="Progetto 3 - Immagine 2">
@@ -236,7 +388,7 @@
     </div>
 
     <div id="project4" class="project-details">
-        <h3>Progetto 4</h3>
+        <h3>UI/UX Design</h3>
         <div class="project-gallery">
             <img src="project4-1.jpg" alt="Progetto 4 - Immagine 1">
             <img src="project4-2.jpg" alt="Progetto 4 - Immagine 2">
@@ -246,7 +398,7 @@
     </div>
 
     <div id="project5" class="project-details">
-        <h3>Progetto 5</h3>
+        <h3>Motion Graphics</h3>
         <div class="project-gallery">
             <img src="project5-1.jpg" alt="Progetto 5 - Immagine 1">
             <img src="project5-2.jpg" alt="Progetto 5 - Immagine 2">
@@ -256,7 +408,7 @@
     </div>
 
     <div id="project6" class="project-details">
-        <h3>Progetto 6</h3>
+        <h3>3D Design</h3>
         <div class="project-gallery">
             <img src="project6-1.jpg" alt="Progetto 6 - Immagine 1">
             <img src="project6-2.jpg" alt="Progetto 6 - Immagine 2">
@@ -265,15 +417,15 @@
         <button class="close-btn" onclick="closeProject('project6')">Chiudi</button>
     </div>
 
-    <div class="overlay" id="projectOverlay"></div>
+<div class="modal-backdrop"></div>
 
     <footer id="contact">
         <div class="footer-content">
             <div class="social-links">
-                <a href="https://www.instagram.com/ivan.calloni/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/ivan-calloni-50b736271/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:ivan.calloni.sch@gmail.com"><i class="fas fa-envelope"></i></a>
-                <a href="tel:+393518007325"><i class="fas fa-phone"></i></a>
+                <a href="https://www.instagram.com/ivan.calloni/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/ivan-calloni-50b736271/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:ivan.calloni.sch@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+393518007325" aria-label="Telefono"><i class="fas fa-phone"></i></a>
             </div>
             <p class="contact-info">
                 Instagram: <a href="https://www.instagram.com/ivan.calloni/" target="_blank">@ivan.calloni</a> | 
@@ -285,7 +437,3 @@
     </footer>
 
     <div class="scroll-to-top" onclick="scrollToTop()">↑</div>
-
-    <script src="script.js"></script>
-</body>
-</html>
